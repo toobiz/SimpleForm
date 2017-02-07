@@ -44,6 +44,10 @@ class TextFieldView: UIView, UITextFieldDelegate {
         textField.underlined(color: UIColor.black)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
