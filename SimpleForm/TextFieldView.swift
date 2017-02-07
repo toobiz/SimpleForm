@@ -21,6 +21,9 @@ class TextFieldView: UIView, UITextFieldDelegate {
         view.frame = self.bounds
         textField.underlined(color: UIColor.black)
         textField.delegate = self
+        
+        let datePicker = UIDatePicker()
+        textField.inputView = datePicker
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
