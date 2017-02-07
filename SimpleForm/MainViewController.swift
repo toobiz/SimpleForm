@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet var addressView: TextFieldView!
     @IBOutlet var phoneView: TextFieldView!
     @IBOutlet var dateView: TextFieldView!
+    @IBOutlet var firstCheckboxView: CheckboxView!
+    @IBOutlet var secondCheckboxView: CheckboxView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,9 @@ class ViewController: UIViewController {
         phoneView.label.text = "Telefon"
         dateView.label.text = "Data spotkania"
         dateView.textField.placeholder = "Wybierz datę"
+        
+        firstCheckboxView.label.text = "Wyrażam zgodę na otrzymywanie od firmy ABCDE Polska Sp. z o.o. ABCDE Polska Dystrybucja Sp. z o.o. oraz ABCDE PLC. informacji handlowych i naukowych drogą elektroniczną na wskazany powyżej adres email."
+        secondCheckboxView.label.text = "Wyrażam zgodę na przetwarzanie swoich danych osobowych, zgodnie z ustawą z dnia 29 sierpnia 1997r. o ochronie danych osobowych (tekst jednolity z dnia 17.06.2002r. Dz. U. Nr 101 poz. 926, z późn. zm.) w celach reklamowych i marketingowych przez firmę ABCDE Polska Sp. z o.o. oraz ABCDE Polska Dystrybucja Sp. z o.o."
     }
     
     override func viewDidLayoutSubviews() {

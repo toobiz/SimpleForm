@@ -96,25 +96,45 @@
                                                     <constraint firstAttribute="height" constant="110" id="JXh-GY-1xB"/>
                                                 </constraints>
                                             </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zy-LI-OMc" userLabel="First Checkbox View" customClass="CheckboxView" customModule="SimpleForm" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="440" width="375" height="60"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="z7z-qi-OfF"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1js-nc-8hs" userLabel="Second Checkbox View" customClass="CheckboxView" customModule="SimpleForm" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="500" width="375" height="60"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="wbg-kT-vvR"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="hVi-s1-85h" firstAttribute="leading" secondItem="I6o-40-jQY" secondAttribute="leading" id="0se-Va-Vgu"/>
+                                            <constraint firstItem="1js-nc-8hs" firstAttribute="leading" secondItem="I6o-40-jQY" secondAttribute="leading" id="3VS-6i-5RW"/>
                                             <constraint firstAttribute="trailing" secondItem="RPD-Uu-iHP" secondAttribute="trailing" id="6vG-TP-Qgu"/>
                                             <constraint firstItem="RPD-Uu-iHP" firstAttribute="leading" secondItem="I6o-40-jQY" secondAttribute="leading" id="8bk-BD-4Di"/>
                                             <constraint firstItem="xvX-gJ-ldG" firstAttribute="leading" secondItem="I6o-40-jQY" secondAttribute="leading" id="CM8-AH-45f"/>
                                             <constraint firstItem="Y9n-44-NWQ" firstAttribute="top" secondItem="I6o-40-jQY" secondAttribute="top" id="ClT-dz-8ji"/>
                                             <constraint firstAttribute="trailing" secondItem="RPD-Uu-iHP" secondAttribute="trailing" id="EDO-Oz-oUO"/>
                                             <constraint firstItem="hVi-s1-85h" firstAttribute="top" secondItem="Y9n-44-NWQ" secondAttribute="bottom" id="GBw-Z7-QfV"/>
+                                            <constraint firstAttribute="trailing" secondItem="4zy-LI-OMc" secondAttribute="trailing" id="JUG-Cu-jnO"/>
                                             <constraint firstItem="RPD-Uu-iHP" firstAttribute="top" secondItem="xvX-gJ-ldG" secondAttribute="bottom" id="L0g-yx-Tbd"/>
                                             <constraint firstAttribute="trailing" secondItem="hVi-s1-85h" secondAttribute="trailing" id="LXm-5c-2G2"/>
                                             <constraint firstAttribute="bottom" secondItem="Y9n-44-NWQ" secondAttribute="bottom" constant="511" id="N0O-XE-CNn"/>
                                             <constraint firstItem="RPD-Uu-iHP" firstAttribute="leading" secondItem="I6o-40-jQY" secondAttribute="leading" id="O6u-ag-lHT"/>
+                                            <constraint firstItem="4zy-LI-OMc" firstAttribute="leading" secondItem="I6o-40-jQY" secondAttribute="leading" id="PNQ-Bc-yUI"/>
                                             <constraint firstItem="Y9n-44-NWQ" firstAttribute="leading" secondItem="I6o-40-jQY" secondAttribute="leading" id="TqD-BK-JeR"/>
                                             <constraint firstItem="xvX-gJ-ldG" firstAttribute="top" secondItem="hVi-s1-85h" secondAttribute="bottom" id="Ujh-hk-bGz"/>
                                             <constraint firstAttribute="trailing" secondItem="xvX-gJ-ldG" secondAttribute="trailing" id="ZLO-fY-bPc"/>
+                                            <constraint firstItem="4zy-LI-OMc" firstAttribute="top" secondItem="RPD-Uu-iHP" secondAttribute="bottom" id="gSm-Lx-cY7"/>
                                             <constraint firstItem="RPD-Uu-iHP" firstAttribute="top" secondItem="xvX-gJ-ldG" secondAttribute="bottom" id="nX6-e4-DF4"/>
                                             <constraint firstAttribute="trailing" secondItem="Y9n-44-NWQ" secondAttribute="trailing" id="nm7-De-4tw"/>
+                                            <constraint firstItem="1js-nc-8hs" firstAttribute="top" secondItem="4zy-LI-OMc" secondAttribute="bottom" id="uLT-iE-g7U"/>
+                                            <constraint firstAttribute="trailing" secondItem="1js-nc-8hs" secondAttribute="trailing" id="vcN-oC-iaO"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -150,10 +170,12 @@
                         <outlet property="addressView" destination="xvX-gJ-ldG" id="cMH-ud-ki1"/>
                         <outlet property="companyView" destination="QmB-DF-c4J" id="Lyz-5B-cAZ"/>
                         <outlet property="dateView" destination="cCn-QX-XlN" id="Bef-9f-tLw"/>
+                        <outlet property="firstCheckboxView" destination="4zy-LI-OMc" id="aSI-fs-W3I"/>
                         <outlet property="jobView" destination="Wct-1a-k2c" id="U1V-gm-97l"/>
                         <outlet property="lastNameView" destination="sNq-Ww-EW2" id="HWB-pL-zhT"/>
                         <outlet property="nameView" destination="9Um-ID-zJ0" id="QY1-Kp-LWj"/>
                         <outlet property="phoneView" destination="xuG-PS-CnD" id="xSk-ia-uE1"/>
+                        <outlet property="secondCheckboxView" destination="1js-nc-8hs" id="dkd-IJ-wSx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -165,7 +187,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="omh-v2-clQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="T0q-ea-e2z">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="T0q-ea-e2z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
