@@ -8,13 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet var nameView: TextFieldView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         title = "Dane osobowe"
+
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("editing")
+    }
+    
+    override func viewDidLayoutSubviews() {
     }
 
     override func didReceiveMemoryWarning() {
