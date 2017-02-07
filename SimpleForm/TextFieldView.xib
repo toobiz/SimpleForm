@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextFieldView" customModule="SimpleForm" customModuleProvider="target">
             <connections>
+                <outlet property="label" destination="QzF-h6-o1B" id="nw7-8H-dDB"/>
                 <outlet property="textField" destination="Xrg-Kc-b6d" id="OLR-3N-oBp"/>
                 <outlet property="view" destination="iN0-l3-epB" id="m6Z-cJ-QMT"/>
             </connections>
@@ -25,7 +26,7 @@
                         <constraint firstAttribute="height" constant="30" id="2Xw-f8-Oxr"/>
                     </constraints>
                     <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Imię" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzF-h6-o1B">
@@ -34,7 +35,7 @@
                         <constraint firstAttribute="height" constant="21" id="g24-zQ-zz4"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>

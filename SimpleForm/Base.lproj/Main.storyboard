@@ -147,7 +147,13 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="621"/>
                     <connections>
+                        <outlet property="addressView" destination="xvX-gJ-ldG" id="cMH-ud-ki1"/>
+                        <outlet property="companyView" destination="QmB-DF-c4J" id="Lyz-5B-cAZ"/>
+                        <outlet property="dateView" destination="cCn-QX-XlN" id="Bef-9f-tLw"/>
+                        <outlet property="jobView" destination="Wct-1a-k2c" id="U1V-gm-97l"/>
+                        <outlet property="lastNameView" destination="sNq-Ww-EW2" id="HWB-pL-zhT"/>
                         <outlet property="nameView" destination="9Um-ID-zJ0" id="QY1-Kp-LWj"/>
+                        <outlet property="phoneView" destination="xuG-PS-CnD" id="xSk-ia-uE1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -159,9 +165,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="omh-v2-clQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T0q-ea-e2z">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="T0q-ea-e2z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
