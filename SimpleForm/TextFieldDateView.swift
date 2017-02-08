@@ -34,6 +34,15 @@ class TextFieldDateView: TextFieldView {
         toolBar.sizeToFit()
         
         textField.inputAccessoryView = toolBar
+        
+        let imageView = UIImageView();
+        let image = UIImage(named: "checkbox-empty");
+        imageView.image = image;
+        imageView.frame = CGRect(x: 120, y: 10, width: 20, height: 20)
+        textField.addSubview(imageView)
+        let rightView = UIView.init(frame: CGRect(x: 0, y: 5, width: textField.frame.size.width-235, height: textField.frame.size.height))
+        textField.rightView = rightView;
+        textField.rightViewMode = UITextFieldViewMode.always
     }
 
     func clickDone() {
