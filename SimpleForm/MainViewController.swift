@@ -40,11 +40,19 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    @IBAction func saveData(_ sender: Any) {
+        
+        print("Imię: \(nameView.textField.text)")
+        print("Nazwisko: \(lastNameView.textField.text)")
+        print("Stanowisko: \(jobView.textField.text)")
+        print("Firma: \(companyView.textField.text)")
+        print("Adres e-mail: \(addressView.textField.text)")
+        print("Telefon: \(phoneView.textField.text)")
+        print("Data spotkania: \(dateView.textField.text)")
+        print("Marketing: \(firstCheckboxView.selected)")
+        print("Przetwarzanie danych: \(secondCheckboxView.selected)")
 
+    }
 
 }
 

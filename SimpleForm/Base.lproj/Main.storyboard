@@ -27,7 +27,11 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="JfE-PF-Ddz"/>
-                                    <barButtonItem title="Zapisz" id="8Ct-Yo-x9t"/>
+                                    <barButtonItem title="Zapisz" id="8Ct-Yo-x9t">
+                                        <connections>
+                                            <action selector="saveData:" destination="BYZ-38-t0r" id="8m1-Zu-t05"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
@@ -41,10 +45,10 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Um-ID-zJ0" customClass="TextFieldView" customModule="SimpleForm" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="188" height="110"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="110"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNq-Ww-EW2" userLabel="Last Name View" customClass="TextFieldView" customModule="SimpleForm" customModuleProvider="target">
-                                                        <rect key="frame" x="188" y="0.0" width="187" height="110"/>
+                                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="110"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
                                                 </subviews>
@@ -60,11 +64,11 @@
                                                 <rect key="frame" x="0.0" y="110" width="375" height="110"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wct-1a-k2c" userLabel="Job View" customClass="TextFieldView" customModule="SimpleForm" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="188" height="110"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="110"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QmB-DF-c4J" userLabel="Company View" customClass="TextFieldView" customModule="SimpleForm" customModuleProvider="target">
-                                                        <rect key="frame" x="188" y="0.0" width="187" height="110"/>
+                                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="110"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
@@ -79,15 +83,15 @@
                                                     <constraint firstAttribute="height" constant="110" id="3Rm-LU-O0o"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RPD-Uu-iHP">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RPD-Uu-iHP" userLabel="Fourth Line Stack View">
                                                 <rect key="frame" x="0.0" y="330" width="375" height="110"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xuG-PS-CnD" userLabel="Phone View" customClass="TextFieldView" customModule="SimpleForm" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="188" height="110"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="110"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCn-QX-XlN" userLabel="Date View" customClass="TextFieldView" customModule="SimpleForm" customModuleProvider="target">
-                                                        <rect key="frame" x="188" y="0.0" width="187" height="110"/>
+                                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="110"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
