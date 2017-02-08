@@ -17,6 +17,7 @@
 		2787A7871E490FC600D20006 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2787A7861E490FC600D20006 /* Assets.xcassets */; };
 		2787A78A1E490FC600D20006 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2787A7881E490FC600D20006 /* LaunchScreen.storyboard */; };
 		2787A7921E49C94900D20006 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2787A7911E49C94900D20006 /* TextFieldView.swift */; };
+		27FB3D851E4B4CBB00FC849A /* TextFieldDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FB3D841E4B4CBB00FC849A /* TextFieldDateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		2787A7891E490FC600D20006 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2787A78B1E490FC600D20006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2787A7911E49C94900D20006 /* TextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		27FB3D841E4B4CBB00FC849A /* TextFieldDateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 				2787A7811E490FC600D20006 /* MainViewController.swift */,
 				2737B8B21E49F7E700B4B817 /* TextFieldView.xib */,
 				2787A7911E49C94900D20006 /* TextFieldView.swift */,
+				27FB3D841E4B4CBB00FC849A /* TextFieldDateView.swift */,
 				2737B8B71E4A20D900B4B817 /* TextField.swift */,
 				2737B8B91E4A7D0100B4B817 /* CheckboxView.xib */,
 				2737B8BB1E4A7DC700B4B817 /* CheckboxView.swift */,
@@ -169,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27FB3D851E4B4CBB00FC849A /* TextFieldDateView.swift in Sources */,
 				2787A7821E490FC600D20006 /* MainViewController.swift in Sources */,
 				2787A7801E490FC600D20006 /* AppDelegate.swift in Sources */,
 				2787A7921E49C94900D20006 /* TextFieldView.swift in Sources */,

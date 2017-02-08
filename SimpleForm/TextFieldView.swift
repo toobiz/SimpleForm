@@ -14,9 +14,6 @@ class TextFieldView: UIView, UITextFieldDelegate {
     @IBOutlet var label: UILabel!
     @IBOutlet var textField: UITextField!
     
-    var datePicker = UIDatePicker()
-    var date = String()
-    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         UINib(nibName: "TextFieldView", bundle: nil).instantiate(withOwner: self, options: nil)
@@ -24,39 +21,6 @@ class TextFieldView: UIView, UITextFieldDelegate {
         view.frame = self.bounds
         textField.underlined(color: UIColor.black)
         textField.delegate = self
-        
-        datePicker.datePickerMode = .date
-        textField.inputView = datePicker
-        
-        let toolbar = UIToolbar()
-        textField.inputAccessoryView = toolbar
-        
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.isTranslucent = true
-        let space = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(self.clickDone))
-        
-
-        toolBar.setItems([space, doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-        toolBar.sizeToFit()
-        
-        textField.inputAccessoryView = toolBar
-        
-    }
-    
-    func clickDone() {
-        self.view.endEditing(true)
-        textField.text = getDateFromPicker()
-    }
-    
-    func getDateFromPicker() -> String {
-        let dateFormatter = DateFormatter()
-        let currentDate = datePicker.date
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        date = dateFormatter.string(from: currentDate)
-        return date
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
