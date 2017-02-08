@@ -33,22 +33,12 @@ class TextFieldView: UIView, UITextFieldDelegate {
     }
     
     func handler(sender: UIDatePicker) {
-//        let timeFormatter = DateFormatter()
-//        timeFormatter.timeStyle = timeFormatter.dateStyle
-//        
-//        date = timeFormatter.string(from: datePicker.date)
 ////        self.view.endEditing(true)
 //        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        
         let currentDate = sender.date
-//        let day = currentDate(day)
-//        let month = currentDate.month()
-//        let year = currentDate.year()
-        
+        dateFormatter.dateFormat = "dd.MM.yyyy, HH:mm"
         date = dateFormatter.string(from: currentDate)
-//        let date  = "\(day)/\(month)/\(year)"
         
         print(date)
 
