@@ -20,29 +20,26 @@ class TextFieldDateView: TextFieldView {
         textField.inputView = datePicker
         textField.placeholder = "Wybierz datę"
         
-        let toolbar = UIToolbar()
-        textField.inputAccessoryView = toolbar
-        
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
         let space = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(self.clickDone))
-        
         toolBar.setItems([space, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         toolBar.sizeToFit()
-        
         textField.inputAccessoryView = toolBar
+        textField.tintColor = UIColor.clear
         
-        let imageView = UIImageView();
-        let image = UIImage(named: "checkbox-empty");
-        imageView.image = image;
-        imageView.frame = CGRect(x: 120, y: 10, width: 20, height: 20)
-        textField.addSubview(imageView)
-        let rightView = UIView.init(frame: CGRect(x: 0, y: 5, width: textField.frame.size.width-235, height: textField.frame.size.height))
-        textField.rightView = rightView;
+        let arrowButton = UIButton(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
+        arrowButton.setImage(UIImage(named: "arrow"), for: .normal)
+        textField.rightView = arrowButton
+        arrowButton.addTarget(self, action: #selector(self.clickArrow), for: UIControlEvents.touchUpInside)
         textField.rightViewMode = UITextFieldViewMode.always
+    }
+    
+    func clickArrow() {
+        textField.becomeFirstResponder()
     }
 
     func clickDone() {
