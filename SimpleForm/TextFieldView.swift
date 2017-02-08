@@ -14,6 +14,9 @@ class TextFieldView: UIView, UITextFieldDelegate {
     @IBOutlet var label: UILabel!
     @IBOutlet var textField: UITextField!
     
+//    var datePicker = UIDatePicker()
+    var date = String()
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         UINib(nibName: "TextFieldView", bundle: nil).instantiate(withOwner: self, options: nil)
@@ -22,8 +25,33 @@ class TextFieldView: UIView, UITextFieldDelegate {
         textField.underlined(color: UIColor.black)
         textField.delegate = self
         
-//        let datePicker = UIDatePicker()
-//        textField.inputView = datePicker
+        let datePicker = UIDatePicker()
+        datePicker.addTarget(self, action: #selector(self.handler(sender:)), for: .valueChanged)
+
+        textField.inputView = datePicker
+        
+    }
+    
+    func handler(sender: UIDatePicker) {
+//        let timeFormatter = DateFormatter()
+//        timeFormatter.timeStyle = timeFormatter.dateStyle
+//        
+//        date = timeFormatter.string(from: datePicker.date)
+////        self.view.endEditing(true)
+//        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        
+        let currentDate = sender.date
+//        let day = currentDate(day)
+//        let month = currentDate.month()
+//        let year = currentDate.year()
+        
+        date = dateFormatter.string(from: currentDate)
+//        let date  = "\(day)/\(month)/\(year)"
+        
+        print(date)
+
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
