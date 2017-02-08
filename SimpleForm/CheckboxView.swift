@@ -14,7 +14,7 @@ class CheckboxView: UIView {
     @IBOutlet var button: UIButton!
     @IBOutlet var label: UILabel!
     
-    var selected = false
+    var selected = Bool()
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!

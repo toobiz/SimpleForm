@@ -6,10 +6,10 @@
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="job" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="marketing" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="marketing" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="processing" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="processing" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
         <element name="Form" positionX="-63" positionY="-18" width="128" height="180"/>

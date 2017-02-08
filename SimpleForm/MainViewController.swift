@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     @IBOutlet var firstCheckboxView: CheckboxView!
     @IBOutlet var secondCheckboxView: CheckboxView!
     
+    var forms = [Form]()
+    
     lazy var sharedContext: NSManagedObjectContext =  {
         return CoreDataStackManager.sharedInstance().managedObjectContext
     }()
@@ -28,10 +30,37 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var forms = [Form]()
         forms = fetchForms()
+        let form = forms[forms.endIndex - 1]
+        print(form.value(forKey: "name")!)
         
         title = "Dane osobowe"
+        
+        nameView.textField.text = form.value(forKey: "name") as? String
+        lastNameView.textField.text = form.value(forKey: "lastName") as? String
+        jobView.textField.text = form.value(forKey: "job") as? String
+        companyView.textField.text = form.value(forKey: "company") as? String
+        addressView.textField.text = form.value(forKey: "address") as? String
+        phoneView.textField.text = form.value(forKey: "phone") as? String
+        dateView.textField.text = form.value(forKey: "date") as? String
+        firstCheckboxView.selected = (form.value(forKey: "marketing") as? Bool)!
+        secondCheckboxView.selected = (form.value(forKey: "processing") as? Bool)!
+        
+        if (form.value(forKey: "marketing") as! Bool == true) {
+            firstCheckboxView.button.setImage(UIImage.init(named: "checkbox-full"), for: .normal)
+        } else {
+            firstCheckboxView.button.setImage(UIImage.init(named: "checkbox-empty"), for: .normal)
+        }
+        
+        if (form.value(forKey: "processing") as! Bool == true) {
+            secondCheckboxView.button.setImage(UIImage.init(named: "checkbox-full"), for: .normal)
+        } else {
+            secondCheckboxView.button.setImage(UIImage.init(named: "checkbox-empty"), for: .normal)
+        }
+        
+//        firstCheckboxView.switchCheckbox(selectedValue: (form.value(forKey: "marketing") as? Bool)!)
+//        secondCheckboxView.switchCheckbox(selectedValue: (form.value(forKey: "processing") as? Bool)!)
+        
         nameView.label.text = "Imię"
         lastNameView.label.text = "Nazwisko"
         jobView.label.text = "Stanowisko"
@@ -57,33 +86,27 @@ class ViewController: UIViewController {
         print("Marketing: \(firstCheckboxView.selected)")
         print("Przetwarzanie danych: \(secondCheckboxView.selected)")
         
-//        func save() {
+        let dictionary : [String : AnyObject] = [
+            "user_address" : addressView.textField.text! as AnyObject,
+            "company_name" :   companyView.textField.text! as AnyObject,
+            "meeting_date" : dateView.textField.text! as AnyObject,
+            "job_title" : jobView.textField.text! as AnyObject,
+            "last_name" : lastNameView.textField.text! as AnyObject,
+            "marketing_permission" : firstCheckboxView.selected as AnyObject,
+            "user_name" : nameView.textField.text! as AnyObject,
+            "phone_number" : phoneView.textField.text! as AnyObject,
+            "processing_permission" : secondCheckboxView.selected as AnyObject
+        ]
         
-            let dictionary : [String : String] = [
-                "user_address" : addressView.textField.text!,
-                "company_name" :   companyView.textField.text!,
-                "meeting_date" : dateView.textField.text!,
-                "job_title" : jobView.textField.text!
-            ]
-            
-            let _ = Form(dictionary: dictionary, context: sharedContext)
-            //        memeToBeAdded.originalImage = image
-            //        let object = UIApplication.sharedApplication().delegate
-            //        let appDelegate = object as! AppDelegate
-            //        self.memes.append(memeToBeAdded)
-            //        memedImage.image = image
-            CoreDataStackManager.sharedInstance().saveContext()
-//        }
+        let _  = Form(dictionary: dictionary, context: sharedContext)
+        CoreDataStackManager.sharedInstance().saveContext()
 
     }
     
     func fetchForms() -> [Form] {
         
-        // Create the Fetch Request
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Form")
-//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "gameTitle", ascending: true)]
         
-        // Execute the Fetch Request
         do {
             return try sharedContext.fetch(fetchRequest) as! [Form]
         } catch  let error as NSError {
@@ -94,3 +117,15 @@ class ViewController: UIViewController {
 
 }
 
+//TODO: 
+// Mechanika ustawiania checkboxów
+// Guzik Done w Toolbarze do przetłumaczenie
+// Zmienić kolor kursorów w uitextfieldach
+// Przy wysuniętej klawiaturze podsunąć do góry widok
+// Dodaj alert po zapisaniu
+// Zmienić guzik w klawiaturzez Gotowe na OK
+// Usunąć tłustą czcionka z tytułu strony
+// Przetestować na różnych urządzeniach
+// Zmienić kolor podkreśleń uitextfieldów
+// Zmniejszyć wysokość elementów
+// Zmienić czcionkę Zapisz na light
