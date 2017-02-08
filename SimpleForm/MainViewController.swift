@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
 
@@ -20,8 +21,15 @@ class ViewController: UIViewController {
     @IBOutlet var firstCheckboxView: CheckboxView!
     @IBOutlet var secondCheckboxView: CheckboxView!
     
+    lazy var sharedContext: NSManagedObjectContext =  {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var forms = [Form]()
+        forms = fetchForms()
         
         title = "Dane osobowe"
         nameView.label.text = "Imię"
@@ -48,7 +56,40 @@ class ViewController: UIViewController {
         print("Data spotkania: \(dateView.textField.text)")
         print("Marketing: \(firstCheckboxView.selected)")
         print("Przetwarzanie danych: \(secondCheckboxView.selected)")
+        
+//        func save() {
+        
+            let dictionary : [String : String] = [
+                "user_address" : addressView.textField.text!,
+                "company_name" :   companyView.textField.text!,
+                "meeting_date" : dateView.textField.text!,
+                "job_title" : jobView.textField.text!
+            ]
+            
+            let _ = Form(dictionary: dictionary, context: sharedContext)
+            //        memeToBeAdded.originalImage = image
+            //        let object = UIApplication.sharedApplication().delegate
+            //        let appDelegate = object as! AppDelegate
+            //        self.memes.append(memeToBeAdded)
+            //        memedImage.image = image
+            CoreDataStackManager.sharedInstance().saveContext()
+//        }
 
+    }
+    
+    func fetchForms() -> [Form] {
+        
+        // Create the Fetch Request
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Form")
+//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "gameTitle", ascending: true)]
+        
+        // Execute the Fetch Request
+        do {
+            return try sharedContext.fetch(fetchRequest) as! [Form]
+        } catch  let error as NSError {
+            print("Error in fetchAllGames(): \(error)")
+            return [Form()]
+        }
     }
 
 }

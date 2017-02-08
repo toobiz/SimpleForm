@@ -11,12 +11,15 @@
 		2737B8B81E4A20D900B4B817 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2737B8B71E4A20D900B4B817 /* TextField.swift */; };
 		2737B8BA1E4A7D0100B4B817 /* CheckboxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2737B8B91E4A7D0100B4B817 /* CheckboxView.xib */; };
 		2737B8BC1E4A7DC700B4B817 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2737B8BB1E4A7DC700B4B817 /* CheckboxView.swift */; };
+		277DDDEA1E4BAC3800D61364 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277DDDE91E4BAC3800D61364 /* Form.swift */; };
 		2787A7801E490FC600D20006 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2787A77F1E490FC600D20006 /* AppDelegate.swift */; };
 		2787A7821E490FC600D20006 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2787A7811E490FC600D20006 /* MainViewController.swift */; };
 		2787A7851E490FC600D20006 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2787A7831E490FC600D20006 /* Main.storyboard */; };
 		2787A7871E490FC600D20006 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2787A7861E490FC600D20006 /* Assets.xcassets */; };
 		2787A78A1E490FC600D20006 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2787A7881E490FC600D20006 /* LaunchScreen.storyboard */; };
 		2787A7921E49C94900D20006 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2787A7911E49C94900D20006 /* TextFieldView.swift */; };
+		27A55C6A1E4B6C6400BDB9E3 /* CoreDateStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A55C691E4B6C6400BDB9E3 /* CoreDateStackManager.swift */; };
+		27A55C6D1E4B6D5300BDB9E3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27A55C6B1E4B6D5300BDB9E3 /* DataModel.xcdatamodeld */; };
 		27FB3D851E4B4CBB00FC849A /* TextFieldDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FB3D841E4B4CBB00FC849A /* TextFieldDateView.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,7 @@
 		2737B8B71E4A20D900B4B817 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		2737B8B91E4A7D0100B4B817 /* CheckboxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckboxView.xib; sourceTree = "<group>"; };
 		2737B8BB1E4A7DC700B4B817 /* CheckboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
+		277DDDE91E4BAC3800D61364 /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		2787A77C1E490FC600D20006 /* SimpleForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2787A77F1E490FC600D20006 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2787A7811E490FC600D20006 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +37,8 @@
 		2787A7891E490FC600D20006 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2787A78B1E490FC600D20006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2787A7911E49C94900D20006 /* TextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		27A55C691E4B6C6400BDB9E3 /* CoreDateStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDateStackManager.swift; sourceTree = "<group>"; };
+		27A55C6C1E4B6D5300BDB9E3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		27FB3D841E4B4CBB00FC849A /* TextFieldDateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +70,9 @@
 		2737B8B61E4A208D00B4B817 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				27A55C691E4B6C6400BDB9E3 /* CoreDateStackManager.swift */,
+				27A55C6B1E4B6D5300BDB9E3 /* DataModel.xcdatamodeld */,
+				277DDDE91E4BAC3800D61364 /* Form.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -173,8 +182,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				27FB3D851E4B4CBB00FC849A /* TextFieldDateView.swift in Sources */,
+				27A55C6D1E4B6D5300BDB9E3 /* DataModel.xcdatamodeld in Sources */,
 				2787A7821E490FC600D20006 /* MainViewController.swift in Sources */,
 				2787A7801E490FC600D20006 /* AppDelegate.swift in Sources */,
+				27A55C6A1E4B6C6400BDB9E3 /* CoreDateStackManager.swift in Sources */,
+				277DDDEA1E4BAC3800D61364 /* Form.swift in Sources */,
 				2787A7921E49C94900D20006 /* TextFieldView.swift in Sources */,
 				2737B8BC1E4A7DC700B4B817 /* CheckboxView.swift in Sources */,
 				2737B8B81E4A20D900B4B817 /* TextField.swift in Sources */,
@@ -344,6 +356,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		27A55C6B1E4B6D5300BDB9E3 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				27A55C6C1E4B6D5300BDB9E3 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 27A55C6C1E4B6D5300BDB9E3 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2787A7741E490FC500D20006 /* Project object */;
 }
