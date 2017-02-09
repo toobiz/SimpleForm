@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet var firstCheckboxView: CheckboxView!
     @IBOutlet var secondCheckboxView: CheckboxView!
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet var saveButton: UIBarButtonItem!
     
     var forms = [Form]()
     var keyboardAppeared = false
@@ -39,6 +40,8 @@ class ViewController: UIViewController {
         let form = forms[forms.endIndex - 1]
         
         title = "Dane osobowe"
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 15, weight: UIFontWeightRegular)]
+        saveButton.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight)], for: .normal)
         
         nameView.textField.text = form.value(forKey: "name") as? String
         lastNameView.textField.text = form.value(forKey: "lastName") as? String
@@ -104,7 +107,7 @@ class ViewController: UIViewController {
         
         let _  = Form(dictionary: dictionary, context: sharedContext)
         CoreDataStackManager.sharedInstance().saveContext()
-
+        showAlert()
     }
     
     func fetchForms() -> [Form] {
@@ -129,25 +132,22 @@ class ViewController: UIViewController {
     
     func keyboardWillHide(notification: NSNotification) {
             if keyboardAppeared == true {
-                bottomConstraint.constant = 511
+                bottomConstraint.constant = 451
                 keyboardAppeared = false
                 view.endEditing(true)
         }
+    }
+    
+    func showAlert() {
+    let alert = UIAlertController(title: "Zapisano", message: "", preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+    present(alert, animated: true, completion: nil)
     }
 }
 
 //TODO:
 
-//Wygląd:
-// Guzik Done w Toolbarze do przetłumaczenie
-// Zmienić kolor kursorów w uitextfieldach
-// Usunąć tłustą czcionka z tytułu strony
-// Zmienić kolor podkreśleń uitextfieldów
-// Zmniejszyć wysokość elementów
-// Zmienić czcionkę Zapisz na light
-
 //Kod:
-// Dodaj alert po zapisaniu
 // Mechanika ustawiania checkboxów
 // Przetestować na różnych urządzeniach
 

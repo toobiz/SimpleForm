@@ -21,7 +21,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Uzupełnij pole" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xrg-Kc-b6d">
-                    <rect key="frame" x="20" y="70" width="437" height="30"/>
+                    <rect key="frame" x="20" y="65" width="437" height="30"/>
+                    <color key="tintColor" red="0.2161759436" green="0.89545291660000004" blue="0.58752983810000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="2Xw-f8-Oxr"/>
                     </constraints>
@@ -46,7 +47,7 @@
                 <constraint firstAttribute="trailing" secondItem="Xrg-Kc-b6d" secondAttribute="trailing" constant="20" id="Cm0-Kd-zy6"/>
                 <constraint firstItem="QzF-h6-o1B" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="KLK-i4-PcH"/>
                 <constraint firstAttribute="trailing" secondItem="QzF-h6-o1B" secondAttribute="trailing" constant="20" id="mS8-dl-s7E"/>
-                <constraint firstItem="Xrg-Kc-b6d" firstAttribute="top" secondItem="QzF-h6-o1B" secondAttribute="bottom" constant="15" id="o7B-Kx-dhx"/>
+                <constraint firstItem="Xrg-Kc-b6d" firstAttribute="top" secondItem="QzF-h6-o1B" secondAttribute="bottom" constant="10" id="o7B-Kx-dhx"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

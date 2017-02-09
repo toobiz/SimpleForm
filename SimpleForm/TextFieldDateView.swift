@@ -24,7 +24,7 @@ class TextFieldDateView: TextFieldView {
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
         let space = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(self.clickDone))
+        let doneButton = UIBarButtonItem(title: "Gotowe", style: UIBarButtonItemStyle.done, target: self, action: #selector(self.clickDone))
         toolBar.setItems([space, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         toolBar.sizeToFit()
