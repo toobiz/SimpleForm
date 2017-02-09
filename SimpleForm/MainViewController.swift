@@ -174,9 +174,4 @@ class ViewController: UIViewController {
     }
 }
 
-//TODO:
-
-// Nadpisywać formularz zamiast tworzyć nowe
-// Przetestować na różnych urządzeniach
-
 
