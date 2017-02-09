@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     @IBOutlet var dateView: TextFieldView!
     @IBOutlet var firstCheckboxView: CheckboxView!
     @IBOutlet var secondCheckboxView: CheckboxView!
-    
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
     
     var forms = [Form]()
@@ -38,7 +37,6 @@ class ViewController: UIViewController {
         
         forms = fetchForms()
         let form = forms[forms.endIndex - 1]
-        print(form.value(forKey: "name")!)
         
         title = "Dane osobowe"
         
@@ -110,7 +108,6 @@ class ViewController: UIViewController {
     }
     
     func fetchForms() -> [Form] {
-        
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Form")
         
         do {
@@ -122,38 +119,36 @@ class ViewController: UIViewController {
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if keyboardAppeared == false {
                 bottomConstraint.constant += keyboardSize.height
                 keyboardAppeared = true
             }
         }
-        
     }
     
     func keyboardWillHide(notification: NSNotification) {
-//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-//            if self.view.frame.origin.y != 0 {
-//                self.view.frame.origin.y += keyboardSize.height
-//            }
-//            if keyboardAppeared == true {
+            if keyboardAppeared == true {
                 bottomConstraint.constant = 511
                 keyboardAppeared = false
-//            }
-//        }
+                view.endEditing(true)
+        }
     }
-
 }
 
-//TODO: 
-// Mechanika ustawiania checkboxów
+//TODO:
+
+//Wygląd:
 // Guzik Done w Toolbarze do przetłumaczenie
 // Zmienić kolor kursorów w uitextfieldach
-// Dodaj alert po zapisaniu
 // Usunąć tłustą czcionka z tytułu strony
-// Przetestować na różnych urządzeniach
 // Zmienić kolor podkreśleń uitextfieldów
 // Zmniejszyć wysokość elementów
 // Zmienić czcionkę Zapisz na light
-// Kursor nie znika z uitextfieldów
+
+//Kod:
+// Dodaj alert po zapisaniu
+// Mechanika ustawiania checkboxów
+// Przetestować na różnych urządzeniach
+
+
