@@ -25,11 +25,19 @@ class CheckboxView: UIView {
     }
     @IBAction func checkboxTapped(_ sender: Any) {
         if selected == false {
-            button.setImage(UIImage.init(named: "checkbox-full"), for: .normal)
-            selected = true
+            select()
         } else {
-            button.setImage(UIImage.init(named: "checkbox-empty"), for: .normal)
-            selected = false
+            deselect()
         }
+    }
+    
+    func select() {
+        button.setImage(UIImage.init(named: "checkbox-full"), for: .normal)
+        selected = true
+    }
+    
+    func deselect() {
+        button.setImage(UIImage.init(named: "checkbox-empty"), for: .normal)
+        selected = false
     }
 }

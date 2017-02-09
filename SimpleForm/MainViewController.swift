@@ -50,23 +50,18 @@ class ViewController: UIViewController {
         addressView.textField.text = form.value(forKey: "address") as? String
         phoneView.textField.text = form.value(forKey: "phone") as? String
         dateView.textField.text = form.value(forKey: "date") as? String
-        firstCheckboxView.selected = (form.value(forKey: "marketing") as? Bool)!
-        secondCheckboxView.selected = (form.value(forKey: "processing") as? Bool)!
         
         if (form.value(forKey: "marketing") as! Bool == true) {
-            firstCheckboxView.button.setImage(UIImage.init(named: "checkbox-full"), for: .normal)
+            firstCheckboxView.select()
         } else {
-            firstCheckboxView.button.setImage(UIImage.init(named: "checkbox-empty"), for: .normal)
+            firstCheckboxView.deselect()
         }
         
         if (form.value(forKey: "processing") as! Bool == true) {
-            secondCheckboxView.button.setImage(UIImage.init(named: "checkbox-full"), for: .normal)
+            secondCheckboxView.select()
         } else {
-            secondCheckboxView.button.setImage(UIImage.init(named: "checkbox-empty"), for: .normal)
+            secondCheckboxView.deselect()
         }
-        
-//        firstCheckboxView.switchCheckbox(selectedValue: (form.value(forKey: "marketing") as? Bool)!)
-//        secondCheckboxView.switchCheckbox(selectedValue: (form.value(forKey: "processing") as? Bool)!)
         
         nameView.label.text = "Imię"
         lastNameView.label.text = "Nazwisko"
@@ -148,7 +143,6 @@ class ViewController: UIViewController {
 //TODO:
 
 //Kod:
-// Mechanika ustawiania checkboxów
 // Przetestować na różnych urządzeniach
 
 
