@@ -18,7 +18,7 @@ class TextFieldView: UIView, UITextFieldDelegate {
         super.init(coder: aDecoder)!
         UINib(nibName: "TextFieldView", bundle: nil).instantiate(withOwner: self, options: nil)
         addSubview(view)
-        view.frame = self.bounds
+        view.frame = bounds
         textField.underlined(color: UIColor.lightGray, width: 0.5)
         textField.delegate = self
     }
@@ -47,7 +47,7 @@ class TextFieldView: UIView, UITextFieldDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     override func awakeFromNib() {

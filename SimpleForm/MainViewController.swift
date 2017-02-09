@@ -59,27 +59,32 @@ class ViewController: UIViewController {
     func fillWithSavedData() {
         
         forms = fetchForms()
-        let form = forms[forms.endIndex - 1]
         
-        nameView.textField.text = form.value(forKey: "name") as? String
-        lastNameView.textField.text = form.value(forKey: "lastName") as? String
-        jobView.textField.text = form.value(forKey: "job") as? String
-        companyView.textField.text = form.value(forKey: "company") as? String
-        addressView.textField.text = form.value(forKey: "address") as? String
-        phoneView.textField.text = form.value(forKey: "phone") as? String
-        dateView.textField.text = form.value(forKey: "date") as? String
-        
-        if (form.value(forKey: "marketing") as! Bool == true) {
-            firstCheckboxView.select()
-        } else {
-            firstCheckboxView.deselect()
+        if forms.count > 0 {
+            
+            let form = forms[forms.endIndex - 1]
+            
+            nameView.textField.text = form.value(forKey: "name") as? String
+            lastNameView.textField.text = form.value(forKey: "lastName") as? String
+            jobView.textField.text = form.value(forKey: "job") as? String
+            companyView.textField.text = form.value(forKey: "company") as? String
+            addressView.textField.text = form.value(forKey: "address") as? String
+            phoneView.textField.text = form.value(forKey: "phone") as? String
+            dateView.textField.text = form.value(forKey: "date") as? String
+            
+            if (form.value(forKey: "marketing") as! Bool == true) {
+                firstCheckboxView.select()
+            } else {
+                firstCheckboxView.deselect()
+            }
+            
+            if (form.value(forKey: "processing") as! Bool == true) {
+                secondCheckboxView.select()
+            } else {
+                secondCheckboxView.deselect()
+            }
         }
         
-        if (form.value(forKey: "processing") as! Bool == true) {
-            secondCheckboxView.select()
-        } else {
-            secondCheckboxView.deselect()
-        }
     }
     
     @IBAction func saveData(_ sender: Any) {
@@ -125,8 +130,8 @@ class ViewController: UIViewController {
     // MARK: - Keyboard
     
     func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     func keyboardWillShow(notification: NSNotification) {
@@ -156,7 +161,7 @@ class ViewController: UIViewController {
     
     func showAlert() {
     let alert = UIAlertController(title: "Zapisano", message: "", preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
     present(alert, animated: true, completion: nil)
     }
 }

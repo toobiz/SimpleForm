@@ -13,10 +13,10 @@ extension UITextField {
     func underlined(color: UIColor, width: CGFloat){
         let border = CALayer()
         border.borderColor = color.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
+        border.frame = CGRect(x: 0, y: frame.size.height - width, width:  frame.size.width, height: frame.size.height)
         border.borderWidth = width
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
+        layer.addSublayer(border)
+        layer.masksToBounds = true
     }
     
 }

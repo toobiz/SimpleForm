@@ -31,10 +31,10 @@ class TextFieldDateView: TextFieldView {
     
     func setupToolBar() {
         let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.default
+        toolBar.barStyle = .default
         toolBar.isTranslucent = true
-        let space = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Gotowe", style: UIBarButtonItemStyle.done, target: self, action: #selector(self.clickDone))
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Gotowe", style: .done, target: self, action: #selector(clickDone))
         toolBar.setItems([space, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         toolBar.sizeToFit()
@@ -46,8 +46,8 @@ class TextFieldDateView: TextFieldView {
         let arrowButton = UIButton(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
         arrowButton.setImage(UIImage(named: "arrow"), for: .normal)
         textField.rightView = arrowButton
-        arrowButton.addTarget(self, action: #selector(self.clickArrow), for: UIControlEvents.touchUpInside)
-        textField.rightViewMode = UITextFieldViewMode.always
+        arrowButton.addTarget(self, action: #selector(clickArrow), for: .touchUpInside)
+        textField.rightViewMode = .always
     }
     
     // MARK: - Actions
@@ -57,7 +57,7 @@ class TextFieldDateView: TextFieldView {
     }
 
     func clickDone() {
-        self.view.endEditing(true)
+        view.endEditing(true)
         textField.text = getDateFromPicker()
     }
     
