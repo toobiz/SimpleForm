@@ -16,10 +16,20 @@ class TextFieldDateView: TextFieldView {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
+        setupPicker()
+        setupToolBar()
+        setupArrowButton()
+    }
+    
+    // MARK: - Initial setup
+    
+    func setupPicker() {
         datePicker.datePickerMode = .date
         textField.inputView = datePicker
         textField.placeholder = "Wybierz datę"
-        
+    }
+    
+    func setupToolBar() {
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
@@ -30,13 +40,17 @@ class TextFieldDateView: TextFieldView {
         toolBar.sizeToFit()
         textField.inputAccessoryView = toolBar
         textField.tintColor = UIColor.clear
-        
+    }
+    
+    func setupArrowButton() {
         let arrowButton = UIButton(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
         arrowButton.setImage(UIImage(named: "arrow"), for: .normal)
         textField.rightView = arrowButton
         arrowButton.addTarget(self, action: #selector(self.clickArrow), for: UIControlEvents.touchUpInside)
         textField.rightViewMode = UITextFieldViewMode.always
     }
+    
+    // MARK: - Actions
     
     func clickArrow() {
         textField.becomeFirstResponder()
@@ -46,6 +60,8 @@ class TextFieldDateView: TextFieldView {
         self.view.endEditing(true)
         textField.text = getDateFromPicker()
     }
+    
+    // MARK: - Date Picker
     
     func getDateFromPicker() -> String {
         let dateFormatter = DateFormatter()

@@ -57,12 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				2787A7811E490FC600D20006 /* MainViewController.swift */,
+				27FB3D841E4B4CBB00FC849A /* TextFieldDateView.swift */,
 				2737B8B21E49F7E700B4B817 /* TextFieldView.xib */,
 				2787A7911E49C94900D20006 /* TextFieldView.swift */,
-				27FB3D841E4B4CBB00FC849A /* TextFieldDateView.swift */,
-				2737B8B71E4A20D900B4B817 /* TextField.swift */,
 				2737B8B91E4A7D0100B4B817 /* CheckboxView.xib */,
 				2737B8BB1E4A7DC700B4B817 /* CheckboxView.swift */,
+				2737B8B71E4A20D900B4B817 /* TextField.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
