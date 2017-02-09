@@ -172,6 +172,7 @@
                     <size key="freeformSize" width="375" height="621"/>
                     <connections>
                         <outlet property="addressView" destination="xvX-gJ-ldG" id="cMH-ud-ki1"/>
+                        <outlet property="bottomConstraint" destination="N0O-XE-CNn" id="2gc-0S-kuD"/>
                         <outlet property="companyView" destination="QmB-DF-c4J" id="Lyz-5B-cAZ"/>
                         <outlet property="dateView" destination="cCn-QX-XlN" id="Bef-9f-tLw"/>
                         <outlet property="firstCheckboxView" destination="4zy-LI-OMc" id="aSI-fs-W3I"/>

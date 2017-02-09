@@ -21,7 +21,10 @@ class ViewController: UIViewController {
     @IBOutlet var firstCheckboxView: CheckboxView!
     @IBOutlet var secondCheckboxView: CheckboxView!
     
+    @IBOutlet var bottomConstraint: NSLayoutConstraint!
+    
     var forms = [Form]()
+    var keyboardAppeared = false
     
     lazy var sharedContext: NSManagedObjectContext =  {
         return CoreDataStackManager.sharedInstance().managedObjectContext
@@ -29,6 +32,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         forms = fetchForms()
         let form = forms[forms.endIndex - 1]
@@ -114,6 +120,29 @@ class ViewController: UIViewController {
             return [Form()]
         }
     }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if keyboardAppeared == false {
+                bottomConstraint.constant += keyboardSize.height
+                keyboardAppeared = true
+            }
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+//            if self.view.frame.origin.y != 0 {
+//                self.view.frame.origin.y += keyboardSize.height
+//            }
+//            if keyboardAppeared == true {
+                bottomConstraint.constant = 511
+                keyboardAppeared = false
+//            }
+//        }
+    }
 
 }
 
@@ -121,11 +150,10 @@ class ViewController: UIViewController {
 // Mechanika ustawiania checkboxów
 // Guzik Done w Toolbarze do przetłumaczenie
 // Zmienić kolor kursorów w uitextfieldach
-// Przy wysuniętej klawiaturze podsunąć do góry widok
 // Dodaj alert po zapisaniu
-// Zmienić guzik w klawiaturzez Gotowe na OK
 // Usunąć tłustą czcionka z tytułu strony
 // Przetestować na różnych urządzeniach
 // Zmienić kolor podkreśleń uitextfieldów
 // Zmniejszyć wysokość elementów
 // Zmienić czcionkę Zapisz na light
+// Kursor nie znika z uitextfieldów
