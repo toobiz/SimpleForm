@@ -32,16 +32,34 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        initialSetup()
+        addObservers()
+        fillWithSavedData()
+        fillWithStaticData()
+    }
+
+    // MARK: - Saving / fetching data
+    
+    func fillWithStaticData() {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        nameView.label.text = "Imię"
+        lastNameView.label.text = "Nazwisko"
+        jobView.label.text = "Stanowisko"
+        companyView.label.text = "Firma"
+        addressView.label.text = "Adres e-mail"
+        phoneView.label.text = "Telefon"
+        dateView.label.text = "Data spotkania"
+        dateView.textField.placeholder = "Wybierz datę"
+        
+        firstCheckboxView.label.text = "Wyrażam zgodę na otrzymywanie od firmy ABCDE Polska Sp. z o.o. ABCDE Polska Dystrybucja Sp. z o.o. oraz ABCDE PLC. informacji handlowych i naukowych drogą elektroniczną na wskazany powyżej adres email."
+        secondCheckboxView.label.text = "Wyrażam zgodę na przetwarzanie swoich danych osobowych, zgodnie z ustawą z dnia 29 sierpnia 1997r. o ochronie danych osobowych (tekst jednolity z dnia 17.06.2002r. Dz. U. Nr 101 poz. 926, z późn. zm.) w celach reklamowych i marketingowych przez firmę ABCDE Polska Sp. z o.o. oraz ABCDE Polska Dystrybucja Sp. z o.o."
+    }
+    
+    func fillWithSavedData() {
         
         forms = fetchForms()
         let form = forms[forms.endIndex - 1]
-        
-        title = "Dane osobowe"
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 15, weight: UIFontWeightRegular)]
-        saveButton.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight)], for: .normal)
         
         nameView.textField.text = form.value(forKey: "name") as? String
         lastNameView.textField.text = form.value(forKey: "lastName") as? String
@@ -62,20 +80,8 @@ class ViewController: UIViewController {
         } else {
             secondCheckboxView.deselect()
         }
-        
-        nameView.label.text = "Imię"
-        lastNameView.label.text = "Nazwisko"
-        jobView.label.text = "Stanowisko"
-        companyView.label.text = "Firma"
-        addressView.label.text = "Adres e-mail"
-        phoneView.label.text = "Telefon"
-        dateView.label.text = "Data spotkania"
-        dateView.textField.placeholder = "Wybierz datę"
-        
-        firstCheckboxView.label.text = "Wyrażam zgodę na otrzymywanie od firmy ABCDE Polska Sp. z o.o. ABCDE Polska Dystrybucja Sp. z o.o. oraz ABCDE PLC. informacji handlowych i naukowych drogą elektroniczną na wskazany powyżej adres email."
-        secondCheckboxView.label.text = "Wyrażam zgodę na przetwarzanie swoich danych osobowych, zgodnie z ustawą z dnia 29 sierpnia 1997r. o ochronie danych osobowych (tekst jednolity z dnia 17.06.2002r. Dz. U. Nr 101 poz. 926, z późn. zm.) w celach reklamowych i marketingowych przez firmę ABCDE Polska Sp. z o.o. oraz ABCDE Polska Dystrybucja Sp. z o.o."
     }
-
+    
     @IBAction func saveData(_ sender: Any) {
         
         print("Imię: \(nameView.textField.text)")
@@ -111,9 +117,16 @@ class ViewController: UIViewController {
         do {
             return try sharedContext.fetch(fetchRequest) as! [Form]
         } catch  let error as NSError {
-            print("Error in fetchAllGames(): \(error)")
+            print("Error in fetchForms(): \(error)")
             return [Form()]
         }
+    }
+    
+    // MARK: - Keyboard
+    
+    func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     func keyboardWillShow(notification: NSNotification) {
@@ -133,6 +146,14 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: - Helpers
+    
+    func initialSetup() {
+        title = "Dane osobowe"
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 15, weight: UIFontWeightRegular)]
+        saveButton.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight)], for: .normal)
+    }
+    
     func showAlert() {
     let alert = UIAlertController(title: "Zapisano", message: "", preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -142,7 +163,7 @@ class ViewController: UIViewController {
 
 //TODO:
 
-//Kod:
+// Nadpisywać formularz zamiast tworzyć nowe
 // Przetestować na różnych urządzeniach
 
 
