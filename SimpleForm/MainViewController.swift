@@ -35,8 +35,14 @@ class ViewController: UIViewController {
 
         initialSetup()
         addObservers()
-        fillWithSavedData()
         fillWithStaticData()
+        
+        forms = fetchForms()
+        if forms.count > 0 {
+            fillWithSavedData()
+        }
+        
+
     }
 
     // MARK: - Saving / fetching data
@@ -58,37 +64,39 @@ class ViewController: UIViewController {
     
     func fillWithSavedData() {
         
-        forms = fetchForms()
+        let form = forms[forms.endIndex - 1]
         
-        if forms.count > 0 {
-            
-            let form = forms[forms.endIndex - 1]
-            
-            nameView.textField.text = form.value(forKey: "name") as? String
-            lastNameView.textField.text = form.value(forKey: "lastName") as? String
-            jobView.textField.text = form.value(forKey: "job") as? String
-            companyView.textField.text = form.value(forKey: "company") as? String
-            addressView.textField.text = form.value(forKey: "address") as? String
-            phoneView.textField.text = form.value(forKey: "phone") as? String
-            dateView.textField.text = form.value(forKey: "date") as? String
-            
-            if (form.value(forKey: "marketing") as! Bool == true) {
-                firstCheckboxView.select()
-            } else {
-                firstCheckboxView.deselect()
-            }
-            
-            if (form.value(forKey: "processing") as! Bool == true) {
-                secondCheckboxView.select()
-            } else {
-                secondCheckboxView.deselect()
-            }
+        nameView.textField.text = form.value(forKey: "name") as? String
+        lastNameView.textField.text = form.value(forKey: "lastName") as? String
+        jobView.textField.text = form.value(forKey: "job") as? String
+        companyView.textField.text = form.value(forKey: "company") as? String
+        addressView.textField.text = form.value(forKey: "address") as? String
+        phoneView.textField.text = form.value(forKey: "phone") as? String
+        dateView.textField.text = form.value(forKey: "date") as? String
+        
+        if (form.value(forKey: "marketing") as! Bool == true) {
+            firstCheckboxView.select()
+        } else {
+            firstCheckboxView.deselect()
+        }
+        
+        if (form.value(forKey: "processing") as! Bool == true) {
+            secondCheckboxView.select()
+        } else {
+            secondCheckboxView.deselect()
         }
         
     }
     
     @IBAction func saveData(_ sender: Any) {
         
+        forms = fetchForms()
+        if forms.count > 0 {
+            let form = forms[forms.endIndex - 1]
+            sharedContext.delete(form)
+            CoreDataStackManager.sharedInstance().saveContext()
+        }
+
         print("Imię: \(nameView.textField.text)")
         print("Nazwisko: \(lastNameView.textField.text)")
         print("Stanowisko: \(jobView.textField.text)")
